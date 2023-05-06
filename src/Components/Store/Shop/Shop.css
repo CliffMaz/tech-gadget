@@ -1,0 +1,14 @@
+.items {
+  padding: 90px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.shop h1 {
+  font-size: 55px;
+  color: rgb(72, 152, 72);
+  display: flex;
+  padding-left: 150px;
+  align-content: start;
+}/*# sourceMappingURL=Shop.css.map */
