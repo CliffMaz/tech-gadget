@@ -10,7 +10,7 @@ function Store() {
         <Slider/>
         <Categories/>
         <Products/>
-        <Footer/>
+        
     </main>
   )
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import './Category.scss';
 import ipad from '../../../assets/ipad.png'
 import Category from './Category';
+import air from '../../../assets/macAir.png'
 
 function Categories() {
   return (
@@ -11,9 +12,9 @@ function Categories() {
         
         <div className='cat-list'>
             
-            <Category/>
-            <Category/>
-            <Category/>
+            <Category cat_name='All Categories' pic={ipad}/>
+            <Category cat_name='Laptop & Phones' pic={air}/>
+            <Category cat_name='Misc' pic={ipad}/>
         </div>
         
     

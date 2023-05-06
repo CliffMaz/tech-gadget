@@ -1,12 +1,11 @@
 import React from 'react'
 import './Category.scss'
-import ipad from '../../../assets/ipad.png'
 
-function Category() {
+function Category({cat_name, pic}) {
   return (
         <div className='cat-item'>
-                <img src={ipad}/>
-                <p>All Products</p>
+                <img src={pic} alt=''/>
+                <p>{cat_name}</p>
             </div>
     
   )

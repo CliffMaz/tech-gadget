@@ -12,7 +12,7 @@ function Slider() {
             <button>Shop Now</button>
         </div>
         <div className='right'>
-            <img src={iPhone}/>
+            <img src={iPhone} alt=''/>
         </div>
     </section>
   )
