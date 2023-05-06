@@ -1,6 +1,7 @@
 .cart-items {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .items-left {
@@ -19,7 +20,9 @@
 .cart {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   border-radius: 20px;
+  padding: 10px;
   margin-bottom: 30px;
   box-shadow: 1px 0px 11px 3px rgba(130, 119, 119, 0.75);
 }
@@ -34,4 +37,28 @@
 .cart-right .cart-buttons {
   display: flex;
   justify-content: space-between;
+}
+
+.cart-edit {
+  display: flex;
+}
+.cart-edit p {
+  height: 10px;
+}
+.cart-edit input {
+  height: 10px;
+}
+
+.check-out button {
+  list-style: none;
+  border: 2px solid black;
+  margin: 10px;
+  border-radius: 35px;
+  background-color: rgb(255, 255, 255);
+  width: 160px;
+  height: 50px;
+}
+.check-out .checkout {
+  background-color: black;
+  color: white;
 }/*# sourceMappingURL=Cart.css.map */

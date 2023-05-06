@@ -12,8 +12,10 @@ function Item() {
             <h1>iPhone 14 Pro Max</h1>
             <p>Price: R1699</p>
             <div className='cart-buttons'>
-                <p>add</p>
-                <p>delete</p>
+                <div className='cart-edit'>
+                    <button>-</button><input/><button>+</button>
+                </div>
+                <p>remove</p>
             </div>
         </div>
     </section>

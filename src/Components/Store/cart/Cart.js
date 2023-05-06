@@ -17,9 +17,9 @@ function Cart() {
       
       <div className='items-right'>
         <h1>Sub Total: R1699</h1>
-        <div>
+        <div className='check-out'>
           <button>Continue Shopping</button>
-          <button>Checkout</button>
+          <button className='checkout'>Checkout</button>
         </div>
       </div>
     </div>
