@@ -1,24 +1,24 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 250px;
+  opacity: 0.9;
+  background-color: antiquewhite;
 
-
-.nav{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0 250px;
-    opacity: 0.9;
-    background-color: antiquewhite;
+  .user {
+    align-self: center;
+  }
 }
 
-.menu{
-    display: flex;
-    flex-direction: row;
-    outline-style: none;
-    text-decoration: none;
-    list-style-type: none;
-    
+.menu {
+  display: flex;
+  flex-direction: row;
+  outline-style: none;
+  text-decoration: none;
+  list-style-type: none;
 }
 
-
-.menu li{
-    margin: 10px;
+.menu li {
+  margin: 10px;
 }

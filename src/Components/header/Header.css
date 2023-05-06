@@ -6,6 +6,9 @@
   opacity: 0.9;
   background-color: antiquewhite;
 }
+.nav .user {
+  align-self: center;
+}
 
 .menu {
   display: flex;
