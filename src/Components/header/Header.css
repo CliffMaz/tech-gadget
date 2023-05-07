@@ -2,12 +2,27 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0 250px;
-  opacity: 0.9;
-  background-color: antiquewhite;
+  align-items: center;
+  padding: 0 200px;
+  background-color: white;
 }
 .nav .user {
+  display: flex;
+  justify-content: center;
   align-self: center;
+}
+.nav .user button {
+  margin: 0 4px;
+  list-style: none;
+  background-color: transparent;
+  border: none;
+  font-size: 15px;
+}
+.nav .user button:hover {
+  color: rgb(92, 159, 92);
+}
+.nav .user button:active {
+  transform: scale(1.4);
 }
 
 .menu {
@@ -16,8 +31,20 @@
   outline-style: none;
   text-decoration: none;
   list-style-type: none;
+  height: 35px;
+  width: 35%;
+  background-color: aqua;
 }
-
-.menu li {
-  margin: 10px;
+.menu input {
+  width: 100%;
+  outline: none;
+  font-size: 15px;
+  border: 2px solid black;
+}
+.menu button {
+  width: 30%;
+  background-color: black;
+  border: none;
+  color: white;
+  font-size: 15px;
 }/*# sourceMappingURL=Header.css.map */

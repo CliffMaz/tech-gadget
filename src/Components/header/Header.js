@@ -7,15 +7,14 @@ function Header() {
     <header>
       <nav className="nav">
         <h1 className="logo">Tech-Gadget</h1>
-        <ul className="menu">
-          <li>Home</li>
-          <li>Shop</li>
-          <li>About</li>
-          <li>Contact</li>
-          <li>Account</li>
-        </ul>
+        <div className="menu">
+          <input placeholder="Search" />
+          <button>Search</button>
+        </div>
 
         <div className="user">
+          <button>Register</button>
+          <button>Sign In</button>
           <ShoppingCartOutlinedIcon />
         </div>
       </nav>

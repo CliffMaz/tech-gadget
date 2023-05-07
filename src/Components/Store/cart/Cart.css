@@ -3,6 +3,12 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+.cart-items .items-right {
+  position: fixed;
+  top: 250px;
+  right: 190px;
+  z-index: 999;
+}
 
 .items-left {
   width: 50%;
