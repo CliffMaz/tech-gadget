@@ -35,7 +35,7 @@
   outline-style: none;
   text-decoration: none;
   list-style-type: none;
-  height: 35px;
+  height: 45px;
   width: 35%;
   background-color: aqua;
 
@@ -52,5 +52,25 @@
     border: none;
     color: white;
     font-size: 15px;
+  }
+}
+
+.cart-trolley {
+  position: relative;
+
+  .cart-total-count {
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    top: -13px;
+    right: -13px;
+    background-color: rgb(209, 23, 23);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    padding: 2px;
   }
 }

@@ -15,7 +15,10 @@ function Header() {
         <div className="user">
           <button>Register</button>
           <button>Sign In</button>
-          <ShoppingCartOutlinedIcon />
+          <div className="cart-trolley">
+            <ShoppingCartOutlinedIcon />
+            <span className="cart-total-count">8</span>
+          </div>
         </div>
       </nav>
     </header>
