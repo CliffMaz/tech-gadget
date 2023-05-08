@@ -1,8 +1,9 @@
 import React from "react";
 import "./Header.scss";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import { Link } from "react-router-dom";
 
-function Header() {
+function Header(props) {
   return (
     <header>
       <nav className="nav">
@@ -15,10 +16,13 @@ function Header() {
         <div className="user">
           <button>Register</button>
           <button>Sign In</button>
-          <div className="cart-trolley">
-            <ShoppingCartOutlinedIcon />
-            <span className="cart-total-count">8</span>
-          </div>
+
+          <Link to="/cart" style={{ textDecoration: "none" }}>
+            <div className="cart-trolley">
+              <ShoppingCartOutlinedIcon />
+              <span className="cart-total-count">{props.cartCount}</span>
+            </div>
+          </Link>
         </div>
       </nav>
     </header>

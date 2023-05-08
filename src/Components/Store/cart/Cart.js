@@ -2,16 +2,17 @@ import React from "react";
 import "./Cart.scss";
 import Item from "./Item";
 
-function Cart() {
+function Cart(props) {
   return (
     <div className="cart-items">
       <div className="items-left">
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
+        {props.cartdata.map((item) => (
+          <Item
+            item={item}
+            key={item.id}
+            updateQuantity={props.updateQuantity}
+          />
+        ))}
       </div>
 
       <div className="items-right">

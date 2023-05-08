@@ -1,6 +1,7 @@
 import React from "react";
 import "./Slider.scss";
 import iPhone from "../../../assets/iPhone-14.png";
+import { Link } from "react-router-dom";
 
 function Slider() {
   return (
@@ -13,7 +14,9 @@ function Slider() {
           Having the best tech is not about with tech savy but us having your
           back.
         </p>
-        <button>Shop Now</button>
+        <Link to="/shop" style={{ textDecoration: "none" }}>
+          <button>Shop Now</button>
+        </Link>
       </div>
       <div className="right">
         <img src={iPhone} alt="" />

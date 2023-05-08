@@ -1,30 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Products.scss";
-import ipad from "../../../assets/ipad.png";
-import i14 from "../../../assets/iPhone14pro.png";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import { useParams } from "react-router-dom";
 
-function ProductInfo() {
+function ProductInfo({ products, addToCart }) {
+  const { productId } = useParams();
+
+  let product = null;
+
+  products.forEach((item) => {
+    if (item.id === parseInt(productId)) {
+      product = item;
+    }
+  });
+
   return (
     <section className="p-info">
       <h1>Product Information</h1>
       <div className="wrapper">
         <div className="info-left">
-          <img src={i14} />
+          <img src={product.img} alt="" />
         </div>
 
         <div className="info-right">
-          <h4> Smart Phones</h4>
-          <h1>Ipad the latest release with all the feeatures you need</h1>
-          <p>
-            Lorem ipsum dolor sit amet. Sed eveniet reiciendis qui ratione
-            aperiam est doloremque voluptas hic maxime voluptatem ab impedit
-            maiores qui consectetur dignissimos ut aspernatur tenetur. Ad illum
-            consectetur non quidem dicta aut consequatur odio.
-          </p>
+          <h4> {product.category}</h4>
+          <h1>{product.pname}</h1>
+          <p>{product.desc}</p>
           <div>
-            <p>R1699</p>
-            <button>
+            <p>{product.price}</p>
+            <button
+              onClick={() => {
+                addToCart(product.id);
+              }}
+            >
               <ShoppingCartOutlinedIcon /> Add To Cart
             </button>
           </div>

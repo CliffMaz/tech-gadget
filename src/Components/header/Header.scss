@@ -74,3 +74,11 @@
     padding: 2px;
   }
 }
+
+.cart-trolley:active {
+  transform: scale(1.2);
+}
+
+.cart-trolley:hover {
+  color: rgb(92, 159, 92);
+}
