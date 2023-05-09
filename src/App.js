@@ -103,6 +103,7 @@ function App() {
                 cartdata={cartList}
                 updateQuantity={updateQuantity}
                 deleteCartItem={deleteCartItem}
+                cartCount={cartCount}
               />
             }
           />
