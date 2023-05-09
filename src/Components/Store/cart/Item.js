@@ -21,7 +21,7 @@ function Item(props) {
   return (
     <section className="cart">
       <div className="cart-left">
-        <img src={props.item.img} />
+        <img src={props.item.img} alt="" />
       </div>
       <div className="cart-right">
         <h1>{props.item.pname}</h1>
@@ -51,7 +51,13 @@ function Item(props) {
             </button>
           </div>
           <p>
-            <DeleteForeverOutlinedIcon fontSize="large" color="error" />
+            <DeleteForeverOutlinedIcon
+              fontSize="large"
+              color="error"
+              onClick={() => {
+                props.deleteCartItem(props.item.id);
+              }}
+            />
           </p>
         </div>
       </div>

@@ -7,7 +7,9 @@ function Header(props) {
   return (
     <header>
       <nav className="nav">
-        <h1 className="logo">Tech-Gadget</h1>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <h1 className="logo">Tech-Gadget</h1>
+        </Link>
         <div className="menu">
           <input placeholder="Search" />
           <button>Search</button>
