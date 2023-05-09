@@ -14,10 +14,15 @@ function App() {
   const [cartList, setCartList] = useState([]);
   const [productList, setProductList] = useState([...products]);
   const [cartCount, setCartCount] = useState(0);
+  const [searchQuery, setSearchQuary] = useState("");
 
   useEffect(() => {
     setCartCount(sumCartItems(cartList));
   }, [cartList]);
+
+  function searchItem(value) {
+    setSearchQuary(value);
+  }
 
   //delete function for deleting items from the cart
   function deleteCartItem(id) {
@@ -79,16 +84,28 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Header cartCount={cartCount} />
+        <Header cartCount={cartCount} searchItem={searchItem} />
 
         <Routes>
           <Route
             path="/"
-            element={<Store products={productList} addToCart={addToCart} />}
+            element={
+              <Store
+                products={productList}
+                addToCart={addToCart}
+                searchQuery={searchQuery}
+              />
+            }
           />
           <Route
             path="/shop"
-            element={<Shop products={productList} addToCart={addToCart} />}
+            element={
+              <Shop
+                products={productList}
+                addToCart={addToCart}
+                searchQuery={searchQuery}
+              />
+            }
           />
           <Route
             path="/details/:productId"

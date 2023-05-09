@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Cart.scss";
 import Item from "./Item";
 import { Link } from "react-router-dom";
+import EmptyCart from "./EmptyCart";
 
 function Cart(props) {
   const [priceTotal, setPriceTotal] = useState(0);
@@ -19,14 +20,18 @@ function Cart(props) {
   return (
     <div className="cart-items">
       <div className="items-left">
-        {props.cartdata.map((item) => (
-          <Item
-            item={item}
-            key={item.id}
-            updateQuantity={props.updateQuantity}
-            deleteCartItem={props.deleteCartItem}
-          />
-        ))}
+        {props.cartdata.length !== 0 ? (
+          props.cartdata.map((item) => (
+            <Item
+              item={item}
+              key={item.id}
+              updateQuantity={props.updateQuantity}
+              deleteCartItem={props.deleteCartItem}
+            />
+          ))
+        ) : (
+          <EmptyCart />
+        )}
       </div>
 
       <div className="items-right">

@@ -8,7 +8,11 @@ function Store(props) {
     <main>
       <Slider />
       <Categories />
-      <Products products={props.products} addToCart={props.addToCart} />
+      <Products
+        products={props.products}
+        addToCart={props.addToCart}
+        searchQuery={props.searchQuery}
+      />
     </main>
   );
 }

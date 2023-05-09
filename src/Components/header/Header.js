@@ -11,7 +11,12 @@ function Header(props) {
           <h1 className="logo">Tech-Gadget</h1>
         </Link>
         <div className="menu">
-          <input placeholder="Search" />
+          <input
+            placeholder="Search"
+            onChange={(e) =>
+              props.searchItem(e.target.value.toLocaleLowerCase())
+            }
+          />
           <button>Search</button>
         </div>
 
