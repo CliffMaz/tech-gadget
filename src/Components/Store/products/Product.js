@@ -7,7 +7,7 @@ function Product(props) {
   return (
     <Link
       to={`/details/${props.product.id}`}
-      style={{ textDecoration: "none" }}
+      style={{ textDecoration: "none", color: "inherit" }}
     >
       <div className="product">
         <img src={props.product.img} alt="" />

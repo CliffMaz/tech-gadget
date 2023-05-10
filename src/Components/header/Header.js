@@ -7,7 +7,7 @@ function Header(props) {
   return (
     <header>
       <nav className="nav">
-        <Link to="/" style={{ textDecoration: "none" }}>
+        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
           <h1 className="logo">Tech-Gadget</h1>
         </Link>
         <div className="menu">
@@ -24,7 +24,7 @@ function Header(props) {
           <button>Register</button>
           <button>Sign In</button>
 
-          <Link to="/cart" style={{ textDecoration: "none" }}>
+          <Link to="/cart" style={{ textDecoration: "none", color: "inherit" }}>
             <div className="cart-trolley">
               <ShoppingCartOutlinedIcon />
               <span className="cart-total-count">{props.cartCount}</span>
