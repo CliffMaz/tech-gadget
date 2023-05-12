@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "./Cart.scss";
 import Item from "./Item";
 import { Link } from "react-router-dom";
 import EmptyCart from "./EmptyCart";
+import { LoginContext } from "../../../Context/LoginContext";
 
-function Cart(props) {
+function Cart({ updateQuantity, deleteCartItem }) {
   const [priceTotal, setPriceTotal] = useState(0);
+  const { cartData, cartCountData } = useContext(LoginContext);
+  const [cartList] = cartData;
+  const [cartCount] = cartCountData;
 
   useEffect(() => {
-    setPriceTotal(sumPrice(props.cartdata));
-  }, [props.cartdata, props.cartCount]);
+    setPriceTotal(sumPrice(cartList));
+  }, [cartList, cartCount]);
 
   function sumPrice(cartList) {
     return cartList.reduce((acc, item) => {
@@ -20,13 +24,13 @@ function Cart(props) {
   return (
     <div className="cart-items">
       <div className="items-left">
-        {props.cartdata.length !== 0 ? (
-          props.cartdata.map((item) => (
+        {cartList.length !== 0 ? (
+          cartList.map((item) => (
             <Item
               item={item}
               key={item.id}
-              updateQuantity={props.updateQuantity}
-              deleteCartItem={props.deleteCartItem}
+              updateQuantity={updateQuantity}
+              deleteCartItem={deleteCartItem}
             />
           ))
         ) : (

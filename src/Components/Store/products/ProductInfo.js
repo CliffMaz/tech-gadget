@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Products.scss";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { useParams } from "react-router-dom";
 
-function ProductInfo({ products, addToCart }) {
+import { LoginContext } from "../../../Context/LoginContext";
+
+function ProductInfo({ addToCart }) {
   const { productId } = useParams();
+  const { products } = useContext(LoginContext);
+  const [productList] = products;
 
   let product = null;
 
-  products.forEach((item) => {
+  productList.forEach((item) => {
     if (item.id === parseInt(productId)) {
       product = item;
     }

@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Header.scss";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { Link } from "react-router-dom";
 import SignIn from "../signIn/SignIn";
 import Register from "../signIn/Register";
+import { LoginContext } from "../../Context/LoginContext";
 
 function Header(props) {
   const [signIn, setSignIn] = useState(false);
   const [register, setRegister] = useState(false);
+
+  const { userData, cartCountData } = useContext(LoginContext);
+  const [user] = userData;
+  const [cartCount] = cartCountData;
+
+  console.log(user);
 
   function handleCloseSignIn() {
     setSignIn(false);
@@ -53,7 +60,7 @@ function Header(props) {
           <Link to="/cart" style={{ textDecoration: "none", color: "inherit" }}>
             <div className="cart-trolley">
               <ShoppingCartOutlinedIcon />
-              <span className="cart-total-count">{props.cartCount}</span>
+              <span className="cart-total-count">{cartCount}</span>
             </div>
           </Link>
         </div>

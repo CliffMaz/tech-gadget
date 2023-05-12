@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./App.scss";
 import Header from "./Components/header/Header";
 import Cart from "./Components/Store/cart/Cart";
@@ -7,18 +7,19 @@ import ProductInfo from "./Components/Store/products/ProductInfo";
 import Shop from "./Components/Store/Shop/Shop";
 import Store from "./Components/Store/Store";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { products } from "./data/data";
-import { useEffect } from "react";
+import { LoginContext } from "./Context/LoginContext";
 
 function App() {
-  const [cartList, setCartList] = useState([]);
-  const [productList, setProductList] = useState([...products]);
-  const [cartCount, setCartCount] = useState(0);
-  const [searchQuery, setSearchQuary] = useState("");
+  const { products, cartData, cartCountData, search } =
+    useContext(LoginContext);
+  const [cartList, setCartList] = cartData;
+  const [productList] = products;
+  const [cartCount, setCartCount] = cartCountData;
+  const [, setSearchQuary] = search;
 
   useEffect(() => {
     setCartCount(sumCartItems(cartList));
-  }, [cartList]);
+  }, [cartList, cartCount]);
 
   function searchItem(value) {
     setSearchQuary(value);
@@ -84,43 +85,21 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Header cartCount={cartCount} searchItem={searchItem} />
+        <Header searchItem={searchItem} />
 
         <Routes>
-          <Route
-            path="/"
-            element={
-              <Store
-                products={productList}
-                addToCart={addToCart}
-                searchQuery={searchQuery}
-              />
-            }
-          />
-          <Route
-            path="/shop"
-            element={
-              <Shop
-                products={productList}
-                addToCart={addToCart}
-                searchQuery={searchQuery}
-              />
-            }
-          />
+          <Route path="/" element={<Store addToCart={addToCart} />} />
+          <Route path="/shop" element={<Shop addToCart={addToCart} />} />
           <Route
             path="/details/:productId"
-            element={
-              <ProductInfo products={productList} addToCart={addToCart} />
-            }
+            element={<ProductInfo addToCart={addToCart} />}
           />
           <Route
             path="/cart"
             element={
               <Cart
-                cartdata={cartList}
                 updateQuantity={updateQuantity}
                 deleteCartItem={deleteCartItem}
-                cartCount={cartCount}
               />
             }
           />

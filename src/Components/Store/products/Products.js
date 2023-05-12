@@ -1,22 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Products.scss";
 import Product from "./Product";
+import { LoginContext } from "../../../Context/LoginContext";
 
-function Products(props) {
+function Products({ addToCart, searchQuery }) {
+  const { products } = useContext(LoginContext);
+  const [productList] = products;
   return (
     <section className="products">
       <h1>Products</h1>
       <div className="items">
-        {props?.products
-          .filter((item) =>
-            item.pname.toLowerCase().includes(props.searchQuery)
-          )
+        {productList
+          .filter((item) => item.pname.toLowerCase().includes(searchQuery))
           .map((product) => (
-            <Product
-              product={product}
-              key={product.id}
-              addToCart={props.addToCart}
-            />
+            <Product product={product} key={product.id} addToCart={addToCart} />
           ))}
       </div>
     </section>

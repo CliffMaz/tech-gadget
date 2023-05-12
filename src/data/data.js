@@ -3,7 +3,7 @@ import s23 from "../assets/s23.png";
 import canon from "../assets/canon.png";
 import macbook from "../assets/macbook.png";
 
-export const products = [
+export const productItems = [
   {
     id: 1,
     pname: "iPhone 14 Pro Max",

@@ -1,18 +1,24 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import Slider from "./Slider/Slider";
 import Categories from "./Category/Categories";
 import Products from "./products/Products";
+import { productItems } from "../../data/data";
+import { LoginContext } from "../../Context/LoginContext";
 
-function Store(props) {
+function Store({ addToCart }) {
+  const { products, search } = useContext(LoginContext);
+
+  const [, setProductList] = products;
+  const [searchQuery] = search;
+
+  useEffect(() => {
+    setProductList([...productItems]);
+  }, []);
   return (
     <main>
       <Slider />
       <Categories />
-      <Products
-        products={props.products}
-        addToCart={props.addToCart}
-        searchQuery={props.searchQuery}
-      />
+      <Products addToCart={addToCart} searchQuery={searchQuery} />
     </main>
   );
 }
