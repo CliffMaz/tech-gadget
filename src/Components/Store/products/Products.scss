@@ -13,6 +13,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
   }
 }
 
@@ -102,5 +103,29 @@
     height: 30px;
     display: flex;
     align-items: center;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .product {
+    width: 350px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .info-left {
+    width: 100%;
+    padding-left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%;
+    }
+  }
+  .wrapper {
+    display: flex;
+    flex-direction: column;
   }
 }

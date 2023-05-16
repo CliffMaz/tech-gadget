@@ -3,6 +3,8 @@
   width: 100%;
   height: 100vh;
   background: linear-gradient(white, rgb(165, 150, 150), white);
+  align-items: center;
+  justify-content: center;
 }
 
 .left {
@@ -44,5 +46,32 @@
     object-fit: contain;
     width: 100%;
     height: 100%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .slider {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .right {
+    width: 90%;
+  }
+
+  .left {
+    margin: 0;
+    width: 100%;
+    align-items: center;
+
+    h2 {
+      display: flex;
+      align-self: center;
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+    }
   }
 }

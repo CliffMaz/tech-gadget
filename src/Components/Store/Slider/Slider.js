@@ -7,9 +7,7 @@ function Slider() {
   return (
     <section className="slider">
       <div className="left">
-        <h2>
-          Get The Best Tech And <span>Be In Style</span>
-        </h2>
+        <h2>Get The Best Tech And Be In Style</h2>
         <p>
           Having the best tech is not about with tech savy but us having your
           back.

@@ -39,4 +39,23 @@
 .cat-item:hover p {
   display: inline;
   color: white;
+}
+
+@media only screen and (max-width: 1000px) {
+  .cat-item {
+    margin: 10px;
+  }
+  .cat-item img {
+    width: 350px;
+    height: 300px;
+    mix-blend-mode: multiply;
+  }
+  .cat-item p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    font-size: 30px;
+    display: none;
+  }
 }/*# sourceMappingURL=Category.css.map */

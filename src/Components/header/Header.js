@@ -23,8 +23,14 @@ function Header(props) {
   function handleCloseRegister() {
     setRegister(false);
   }
+
+  function handleLogin(email, password) {
+    console.log(email.current.value, password.current.value);
+  }
+
+  function handleRegister() {}
   return (
-    <header>
+    <>
       <nav className="nav">
         <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
           <h1 className="logo">Tech-Gadget</h1>
@@ -66,9 +72,16 @@ function Header(props) {
         </div>
       </nav>
 
-      {signIn && <SignIn closeSignIn={handleCloseSignIn} />}
-      {register && <Register registerClose={handleCloseRegister} />}
-    </header>
+      {signIn && (
+        <SignIn closeSignIn={handleCloseSignIn} handleLogin={handleLogin} />
+      )}
+      {register && (
+        <Register
+          registerClose={handleCloseRegister}
+          handleRegister={handleRegister}
+        />
+      )}
+    </>
   );
 }
 

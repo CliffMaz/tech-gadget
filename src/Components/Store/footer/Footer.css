@@ -3,4 +3,18 @@
   justify-content: space-evenly;
   background-color: black;
   color: white;
+}
+
+@media only screen and (max-width: 700px) {
+  .footer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }/*# sourceMappingURL=Footer.css.map */
