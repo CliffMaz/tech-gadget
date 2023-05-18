@@ -17,7 +17,7 @@ function Store({ addToCart }) {
   return (
     <main>
       <Slider />
-      <Categories />
+      <Categories addToCart={addToCart}/>
       <Products addToCart={addToCart} searchQuery={searchQuery} />
     </main>
   );

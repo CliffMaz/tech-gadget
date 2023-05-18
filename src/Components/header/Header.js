@@ -14,7 +14,6 @@ function Header(props) {
   const [user] = userData;
   const [cartCount] = cartCountData;
 
-  console.log(user);
 
   function handleCloseSignIn() {
     setSignIn(false);
@@ -25,7 +24,7 @@ function Header(props) {
   }
 
   function handleLogin(email, password) {
-    console.log(email.current.value, password.current.value);
+    //console.log(email.current.value, password.current.value);
   }
 
   function handleRegister() {}
