@@ -14,6 +14,9 @@ function Header(props) {
   const [user] = userData;
   const [cartCount] = cartCountData;
 
+  function handleOpenSignIn() {
+    setSignIn(true);
+  }
 
   function handleCloseSignIn() {
     setSignIn(false);
@@ -27,7 +30,6 @@ function Header(props) {
     //console.log(email.current.value, password.current.value);
   }
 
-  function handleRegister() {}
   return (
     <>
       <nav className="nav">
@@ -47,6 +49,7 @@ function Header(props) {
         <div className="user">
           <button
             onClick={(e) => {
+              e.preventDefault();
               setRegister(true);
               setSignIn(false);
             }}
@@ -55,6 +58,7 @@ function Header(props) {
           </button>
           <button
             onClick={(e) => {
+              e.preventDefault();
               setSignIn(true);
               setRegister(false);
             }}
@@ -76,8 +80,8 @@ function Header(props) {
       )}
       {register && (
         <Register
+          signIn={handleOpenSignIn}
           registerClose={handleCloseRegister}
-          handleRegister={handleRegister}
         />
       )}
     </>
