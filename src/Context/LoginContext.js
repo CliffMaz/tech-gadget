@@ -9,8 +9,6 @@ export const LoginProvider = (props) => {
   const [cartCount, setCartCount] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
   const [user, setUser] = useState({
-    username: "",
-    email: "",
     isLoggedIn: false,
   });
 

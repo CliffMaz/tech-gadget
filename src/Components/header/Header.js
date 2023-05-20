@@ -14,6 +14,7 @@ function Header(props) {
   const [user] = userData;
   const [cartCount] = cartCountData;
 
+  console.log(user);
   function handleOpenSignIn() {
     setSignIn(true);
   }
@@ -47,24 +48,40 @@ function Header(props) {
         </div>
 
         <div className="user">
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              setRegister(true);
-              setSignIn(false);
-            }}
-          >
-            Register
-          </button>
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              setSignIn(true);
-              setRegister(false);
-            }}
-          >
-            Sign In
-          </button>
+          {user.isLoggedIn ? (
+            <>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setRegister(true);
+                  setSignIn(false);
+                }}
+              >
+                Register
+              </button>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setSignIn(true);
+                  setRegister(false);
+                }}
+              >
+                Sign In
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setSignIn(true);
+                  setRegister(false);
+                }}
+              >
+                Sign Out
+              </button>
+            </>
+          )}
 
           <Link to="/cart" style={{ textDecoration: "none", color: "inherit" }}>
             <div className="cart-trolley">

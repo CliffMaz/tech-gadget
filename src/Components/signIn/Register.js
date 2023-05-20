@@ -16,7 +16,7 @@ function Register({ registerClose, signIn }) {
   const [inputError, setInputError] = useState(false);
   const [inputHandling, setInputHandling] = useState([]);
 
-  const notify = (succ) => {
+  const notifySuccess = (succ) => {
     toast.success(`🦄 ${succ}`, {
       position: "top-center",
       autoClose: 5000,
@@ -40,14 +40,14 @@ function Register({ registerClose, signIn }) {
     axios
       .post("http://localhost:4001/api/auth/register", newUser)
       .then((res) => {
-        notify("User Created Successfully");
+        notifySuccess("user created");
         setTimeout(() => {
           registerClose();
         }, 3000);
       })
       .catch((err) => {
         setInputHandling([...err.response.data]);
-        setInputError(true);
+        //notifyError("failed to create a user");
       });
   };
   return (
@@ -77,32 +77,42 @@ function Register({ registerClose, signIn }) {
           <input ref={fullnameRef} placeholder="fullname" type="text" />
           {inputHandling
             .filter((data) => data?.context?.key === "fullname")
-            .map((data) => (
-              <label className="error">{data.message}</label>
+            .map((data, key) => (
+              <label key={key} className="error">
+                {data.message}
+              </label>
             ))}
 
           <input ref={usernameRef} placeholder="username" type="text" />
           {inputHandling
             .filter((data) => data?.context?.key === "username")
-            .map((data) => (
-              <label className="error">{data.message}</label>
+            .map((data, key) => (
+              <label key={key} className="error">
+                {data.message}
+              </label>
             ))}
           <input ref={emailRef} placeholder="email" type="text" />
           {inputHandling
             .filter((data) => data?.context?.key === "email")
-            .map((data) => (
-              <label className="error">{data.message}</label>
+            .map((data, key) => (
+              <label key={key} className="error">
+                {data.message}
+              </label>
             ))}
           {inputHandling
             .filter((data) => data?.context === "emailUsed")
-            .map((data) => (
-              <label className="error">{data.emailUsed}</label>
+            .map((data, key) => (
+              <label key={key} className="error">
+                {data.emailUsed}
+              </label>
             ))}
           <input ref={passwordRef} placeholder="password" type="password" />
           {inputHandling
             .filter((data) => data?.context?.key === "password")
-            .map((data) => (
-              <label className="error">{data.message}</label>
+            .map((data, key) => (
+              <label key={key} className="error">
+                {data.message}
+              </label>
             ))}
 
           <button type="submit" className="submit-btn">
