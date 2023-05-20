@@ -11,8 +11,10 @@ function Header(props) {
   const [register, setRegister] = useState(false);
 
   const { userData, cartCountData } = useContext(LoginContext);
-  const [user] = userData;
+  const [user, setUser] = userData;
   const [cartCount] = cartCountData;
+
+  const userIn = user.isLoggedIn;
 
   console.log(user);
   function handleOpenSignIn() {
@@ -48,7 +50,7 @@ function Header(props) {
         </div>
 
         <div className="user">
-          {user.isLoggedIn ? (
+          {!user.isLoggedIn ? (
             <>
               <button
                 onClick={(e) => {
@@ -74,8 +76,7 @@ function Header(props) {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  setSignIn(true);
-                  setRegister(false);
+                  setUser({});
                 }}
               >
                 Sign Out
