@@ -14,9 +14,6 @@ function Header(props) {
   const [user, setUser] = userData;
   const [cartCount] = cartCountData;
 
-  const userIn = user.isLoggedIn;
-
-  console.log(user);
   function handleOpenSignIn() {
     setSignIn(true);
   }
@@ -50,7 +47,7 @@ function Header(props) {
         </div>
 
         <div className="user">
-          {!user.isLoggedIn ? (
+          {!user?._id ? (
             <>
               <button
                 onClick={(e) => {
@@ -77,6 +74,8 @@ function Header(props) {
                 onClick={(e) => {
                   e.preventDefault();
                   setUser({});
+                  console.log(user);
+                  localStorage.clear();
                 }}
               >
                 Sign Out

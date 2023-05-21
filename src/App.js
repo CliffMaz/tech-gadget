@@ -8,16 +8,27 @@ import Shop from "./Components/Store/Shop/Shop";
 import Store from "./Components/Store/Store";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { LoginContext } from "./Context/LoginContext";
+import axios from "axios";
 
 function App() {
-  const { products, cartData, cartCountData, search } =
+  const { products, cartData, cartCountData, search, userData } =
     useContext(LoginContext);
   const [cartList, setCartList] = cartData;
   const [productList] = products;
   const [cartCount, setCartCount] = cartCountData;
   const [, setSearchQuary] = search;
+  const [user, setUser] = userData;
 
   useEffect(() => {
+    const token = localStorage.getItem("auth-token");
+
+    axios
+      .post("http://localhost:4001/api/auth/verify", {
+        headers: { authtoken: `${localStorage.getItem("auth-token")}` },
+      })
+      .then((res) => {
+        setUser({ ...user, ...res.data.user });
+      });
     setCartCount(sumCartItems(cartList));
   }, [cartList, cartCount]);
 

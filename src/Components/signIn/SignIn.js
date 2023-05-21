@@ -54,7 +54,8 @@ function SignIn({ closeSignIn }) {
         const loggedInUser = res.data.user;
         //loggedInUser.isLoggedIn = true;
         localStorage.setItem("auth-token", res.data.token);
-        setUser({ ...user, ...loggedInUser, isLoggedIn: true });
+        setUser({ ...user, ...loggedInUser });
+
         notifySuccess("logged in Successfully");
         setTimeout(() => {
           closeSignIn();

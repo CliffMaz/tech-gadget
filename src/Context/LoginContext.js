@@ -8,9 +8,7 @@ export const LoginProvider = (props) => {
   const [productList, setProductList] = useState([]);
   const [cartCount, setCartCount] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
-  const [user, setUser] = useState({
-    isLoggedIn: false,
-  });
+  const [user, setUser] = useState({});
 
   return (
     <LoginContext.Provider
