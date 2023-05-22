@@ -1,0 +1,18 @@
+.checkout {
+  height: 90vh;
+  margin-top: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.checkout .nav-btn {
+  background-color: antiquewhite;
+}
+.checkout .checkout-info {
+  display: flex;
+  flex-direction: column;
+  background-color: antiquewhite;
+  width: 350px;
+  height: 600px;
+}/*# sourceMappingURL=checkout.css.map */

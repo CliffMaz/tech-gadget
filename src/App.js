@@ -9,6 +9,7 @@ import Store from "./Components/Store/Store";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { LoginContext } from "./Context/LoginContext";
 import Axios from "axios";
+import Checkout from "./Components/Store/checkout/Checkout";
 
 function App() {
   const { products, cartData, cartCountData, search, userData } =
@@ -126,6 +127,7 @@ function App() {
               />
             }
           />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
 
         <Footer />

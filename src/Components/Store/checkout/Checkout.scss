@@ -1,0 +1,55 @@
+.checkout {
+  height: 90vh;
+  margin-top: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .nav-btn {
+    width: 70%;
+    padding-left: 150px;
+  }
+  .checkout-info {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    height: 500px;
+    padding: 20px;
+    justify-content: space-between;
+    box-shadow: 1px 0px 11px 3px rgba(130, 119, 119, 0.75);
+
+    input {
+      width: 95%;
+      align-self: center;
+      height: 30px;
+      font-size: 17px;
+    }
+    label {
+      width: 95%;
+      align-self: center;
+      height: 30px;
+      font-size: 17px;
+    }
+
+    button {
+      width: 95%;
+      background-color: black;
+      align-self: center;
+      color: white;
+      height: 30px;
+      font-size: 17px;
+      border: none;
+    }
+
+    button:hover {
+      border: 2px solid black;
+      color: black;
+      background-color: white;
+    }
+    buton:active {
+      transform: scale(1.2);
+      color: green;
+    }
+  }
+}
