@@ -23,18 +23,18 @@ function ProductInfo({ addToCart }) {
       <h1>Product Information</h1>
       <div className="wrapper">
         <div className="info-left">
-          <img src={product.img} alt="" />
+          <img src={product?.img} alt="" />
         </div>
 
         <div className="info-right">
-          <h4> {product.category}</h4>
-          <h1>{product.pname}</h1>
-          <p>{product.desc}</p>
+          <h4> {product?.category}</h4>
+          <h1>{product?.pname}</h1>
+          <p>{product?.desc}</p>
           <div>
-            <p>{product.price}</p>
+            <p>{product?.price}</p>
             <button
               onClick={() => {
-                addToCart(product.id);
+                addToCart(product?.id);
               }}
             >
               <ShoppingCartOutlinedIcon /> Add To Cart

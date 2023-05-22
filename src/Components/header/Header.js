@@ -73,8 +73,7 @@ function Header(props) {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  setUser({});
-                  console.log(user);
+                  setUser((prev) => (prev = undefined));
                   localStorage.clear();
                 }}
               >
