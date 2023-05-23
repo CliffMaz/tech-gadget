@@ -9,18 +9,37 @@ function Checkout() {
       <div className="nav-btn">
         <ArrowBackIcon />
       </div>
-      <h1>Delivery Address</h1>
+
       <form className="checkout-info">
+        <h4>Delivery Address</h4>
         <label>Street Address</label>
-        <input type="text" placeholder="Street Address" />
+        <input
+          type="text"
+          placeholder="street-address"
+          name="street-address"
+          autoComplete="street-address"
+        />
         <label>City</label>
-        <input type="text" placeholder="City" />
+        <input type="text" name="city" autoComplete="city" placeholder="City" />
         <label>Postal Code</label>
-        <input type="text" placeholder="Street Address" />
+        <input
+          type="text"
+          placeholder="Postal Code"
+          name="postal-code"
+          autoComplete="postal-code"
+        />
         <label>Country</label>
-        <input type="text" placeholder="Street Address" />
-        <label>Address</label>
-        <input type="text" placeholder="Street Address" />
+        <select
+          type="text"
+          name="country"
+          placeholder="Country"
+          autoComplete="country"
+        >
+          <option></option>
+          <option value="BT">Botswana</option>
+          <option value="RSA">South Africa</option>
+          <option value="ZW">Zimbabwe</option>
+        </select>
 
         <button>Proceed to Payment</button>
       </form>

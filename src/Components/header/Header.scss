@@ -88,6 +88,42 @@
   color: rgb(92, 159, 92);
 }
 
+.loggedInUser {
+  position: relative;
+  img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+  }
+}
+
+.profil {
+  position: absolute;
+  display: none;
+  top: 2;
+  right: 80px;
+  width: 115px;
+  height: 80px;
+  border-radius: 4px;
+  box-shadow: 1px 0px 11px 3px rgba(130, 119, 119, 0.75);
+  p {
+    padding: 0 8px;
+    align-self: center;
+  }
+
+  p:hover {
+    display: flex;
+    align-items: center;
+    background-color: rgb(211, 249, 236);
+    margin: 0px;
+    height: 49%;
+  }
+}
+
+.loggedInUser:hover .profil {
+  display: block;
+}
+
 @media only screen and (max-width: 1000px) {
   body {
     margin: 0;

@@ -11,6 +11,14 @@
     padding-left: 150px;
   }
   .checkout-info {
+    h4 {
+      width: 100%;
+      align-self: center;
+      display: flex;
+      justify-content: center;
+      font-weight: 400;
+      font-size: 22px;
+    }
     display: flex;
     flex-direction: column;
     width: 450px;
@@ -32,6 +40,20 @@
       font-size: 17px;
     }
 
+    select {
+      width: 95%;
+      align-self: center;
+      height: 30px;
+      font-size: 17px;
+    }
+
+    option {
+      width: 95%;
+      align-self: center;
+      height: 30px;
+      font-size: 17px;
+    }
+
     button {
       width: 95%;
       background-color: black;
@@ -43,13 +65,73 @@
     }
 
     button:hover {
-      border: 2px solid black;
-      color: black;
-      background-color: white;
+      background-color: rgb(75, 69, 69);
     }
-    buton:active {
+
+    button:active {
       transform: scale(1.2);
-      color: green;
+      background-color: black;
+      buton:active {
+        transform: scale(1.2);
+        color: green;
+      }
     }
   }
+}
+
+//payment selection
+
+.payout {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .pay-form {
+    padding: 10px;
+    border-radius: 1px;
+    width: 20vw;
+    box-shadow: 1px 0px 11px 3px rgba(130, 119, 119, 0.75);
+
+    h4 {
+      width: 100%;
+      align-self: center;
+      display: flex;
+      justify-content: center;
+      font-weight: 400;
+      font-size: 22px;
+    }
+
+    div {
+      padding: 10px;
+    }
+
+    .pay-btn {
+      width: 95%;
+      background-color: black;
+      align-self: center;
+      color: white;
+      height: 30px;
+      font-size: 17px;
+      border: none;
+    }
+
+    .pay-btn:hover {
+      background-color: rgb(75, 69, 69);
+    }
+
+    .pay-btn:active {
+      transform: scale(1.1);
+      background-color: black;
+    }
+  }
+}
+
+.success {
+  height: 70vh;
+  padding-top: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

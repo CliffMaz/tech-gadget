@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import SignIn from "../signIn/SignIn";
 import Register from "../signIn/Register";
 import { LoginContext } from "../../Context/LoginContext";
+import ipad from "../../assets/ipad.png";
 
 function Header(props) {
   const [signIn, setSignIn] = useState(false);
@@ -70,15 +71,21 @@ function Header(props) {
             </>
           ) : (
             <>
-              <button
+              <div
+                className="loggedInUser"
                 onClick={(e) => {
                   e.preventDefault();
                   setUser((prev) => (prev = undefined));
                   localStorage.clear();
                 }}
               >
-                Sign Out
-              </button>
+                <img src={ipad} alt="" />
+                Hi, {user.username}
+                <div className="profil">
+                  <p>My Account</p>
+                  <p>Log Out</p>
+                </div>
+              </div>
             </>
           )}
 

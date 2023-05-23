@@ -10,6 +10,11 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { LoginContext } from "./Context/LoginContext";
 import Axios from "axios";
 import Checkout from "./Components/Store/checkout/Checkout";
+import PayOut from "./Components/Store/checkout/PayOut";
+import CheckOutSuccess from "./Components/Store/checkout/CheckOutSuccess";
+import Orders from "./Components/Store/profile/Orders";
+import Profile from "./Components/Store/profile/Profile";
+import Settings from "./Components/Store/profile/Settings";
 
 function App() {
   const { products, cartData, cartCountData, search, userData } =
@@ -128,6 +133,15 @@ function App() {
             }
           />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/payment" element={<PayOut />} />
+          <Route path="/success" element={<CheckOutSuccess />} />
+
+          <Route path="/profile" element={<Profile />}>
+            <Route path="/profile/orders" element={<Orders />}>
+              <Route path="profile/orders/order" />
+            </Route>
+            <Route path="/profile/settings" element={<Settings />} />
+          </Route>
         </Routes>
 
         <Footer />
