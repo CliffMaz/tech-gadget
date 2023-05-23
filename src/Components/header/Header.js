@@ -71,19 +71,25 @@ function Header(props) {
             </>
           ) : (
             <>
-              <div
-                className="loggedInUser"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setUser((prev) => (prev = undefined));
-                  localStorage.clear();
-                }}
-              >
+              <div className="loggedInUser">
                 <img src={ipad} alt="" />
                 Hi, {user.username}
                 <div className="profil">
-                  <p>My Account</p>
-                  <p>Log Out</p>
+                  <Link
+                    style={{ textDecoration: "none", color: "#39a537" }}
+                    to="/profile/orders"
+                  >
+                    <p>My Account</p>
+                  </Link>
+                  <p
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setUser((prev) => (prev = undefined));
+                      localStorage.clear();
+                    }}
+                  >
+                    Log Out
+                  </p>
                 </div>
               </div>
             </>

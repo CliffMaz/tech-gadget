@@ -15,6 +15,7 @@ import CheckOutSuccess from "./Components/Store/checkout/CheckOutSuccess";
 import Orders from "./Components/Store/profile/Orders";
 import Profile from "./Components/Store/profile/Profile";
 import Settings from "./Components/Store/profile/Settings";
+import PageNotFound from "./Components/PageNotFound";
 
 function App() {
   const { products, cartData, cartCountData, search, userData } =
@@ -142,6 +143,7 @@ function App() {
             </Route>
             <Route path="/profile/settings" element={<Settings />} />
           </Route>
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
 
         <Footer />

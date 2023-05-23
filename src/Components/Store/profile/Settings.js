@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Settings.scss";
 import ipad from "../../../assets/ipad.png";
+import { LoginContext } from "../../../Context/LoginContext";
 
 function Settings() {
+  const { userData } = useContext(LoginContext);
+  const [user] = userData;
   return (
     <section className="settings">
       <h2>Settings</h2>
@@ -12,11 +15,15 @@ function Settings() {
           <div className="update-left">
             <div>
               <label>Username</label>
-              <input type="text" placeholder="Username" />
+              <input
+                type="text"
+                placeholder="Username"
+                value={user?.username}
+              />
             </div>
             <div>
               <label>Email</label>
-              <input type="text" placeholder="Email" />
+              <input type="text" placeholder="Email" value={user?.email} />
             </div>
 
             <div>

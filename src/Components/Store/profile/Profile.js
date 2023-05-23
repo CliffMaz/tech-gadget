@@ -1,17 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Profile.scss";
 import { Link, Outlet, Route, Routes } from "react-router-dom";
 import Orders from "./Orders";
 import Settings from "./Settings";
 import ipad from "../../../assets/ipad.png";
+import { LoginContext } from "../../../Context/LoginContext";
 
 function Profile() {
   const [active, setActive] = useState(1);
+  const { userData } = useContext(LoginContext);
+  const [user] = userData;
 
   const handleClick = (id) => {
     setActive(id);
   };
-  return (
+  return user?._id ? (
     <section className="profile">
       <div className="profile-left">
         <div className="profile-nav">
@@ -19,7 +22,7 @@ function Profile() {
             <img src={ipad} alt="" />
           </div>
           <div children className="pro-info">
-            <p className="heading">Cliford Mazibuko</p>
+            <p className="heading">{user?.fullname}</p>
             <p>user/Shopper</p>
           </div>
         </div>
@@ -61,6 +64,10 @@ function Profile() {
         <Outlet />
       </div>
     </section>
+  ) : (
+    <div className="no-user">
+      <h1>You need to be logged in to access this page</h1>
+    </div>
   );
 }
 
