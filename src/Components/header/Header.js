@@ -6,6 +6,8 @@ import SignIn from "../signIn/SignIn";
 import Register from "../signIn/Register";
 import { LoginContext } from "../../Context/LoginContext";
 import ipad from "../../assets/ipad.png";
+import ManageAccountsOutlinedIcon from "@mui/icons-material/ManageAccountsOutlined";
+import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 
 function Header(props) {
   const [signIn, setSignIn] = useState(false);
@@ -75,21 +77,52 @@ function Header(props) {
                 <img src={ipad} alt="" />
                 Hi, {user.username}
                 <div className="profil">
-                  <Link
-                    style={{ textDecoration: "none", color: "#39a537" }}
-                    to="/profile/orders"
-                  >
-                    <p>My Account</p>
-                  </Link>
-                  <p
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setUser((prev) => (prev = undefined));
-                      localStorage.clear();
-                    }}
-                  >
-                    Log Out
-                  </p>
+                  <div className="dp">
+                    <img src={ipad} alt="" />
+                    <div>
+                      <p>{user.fullname}</p>
+                      <p className="fname">{user.role}</p>
+                    </div>
+                  </div>
+                  <div className="logout-btns">
+                    <Link
+                      style={{
+                        textDecoration: "none",
+                        color: "#39a537",
+                        display: "flex",
+                        alignContent: "center",
+                        alignItems: "center",
+                      }}
+                      to="/profile/orders"
+                    >
+                      <p>
+                        <ManageAccountsOutlinedIcon />
+                        My Account
+                      </p>
+                    </Link>
+
+                    <Link
+                      style={{
+                        textDecoration: "none",
+                        color: "#39a537",
+                        display: "flex",
+                        alignContent: "center",
+                        alignItems: "center",
+                      }}
+                      to="/"
+                    >
+                      <p
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setUser((prev) => (prev = undefined));
+                          localStorage.clear();
+                        }}
+                      >
+                        <LoginOutlinedIcon />
+                        Log Out
+                      </p>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </>

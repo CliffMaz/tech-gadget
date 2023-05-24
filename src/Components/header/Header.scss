@@ -101,23 +101,58 @@
   position: absolute;
   background-color: white;
   display: none;
-  top: 2;
-  right: 80px;
-  width: 115px;
-  height: 80px;
+  top: 30px;
+  right: -50px;
+  width: 175px;
+  height: 180px;
   border-radius: 4px;
   box-shadow: 1px 0px 11px 3px rgba(130, 119, 119, 0.75);
-  p {
-    padding: 0 8px;
-    align-self: center;
-  }
 
-  p:hover {
+  .dp {
     display: flex;
     align-items: center;
-    background-color: rgb(211, 249, 236);
-    margin: 0px;
-    height: 49%;
+    margin: 15px 15px 0 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid lightgray;
+    img {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+    }
+    div {
+      display: flex;
+      flex-direction: column;
+
+      .fname {
+        margin: -2px 15px;
+        color: gray;
+      }
+
+      p {
+        margin: -2px 15px;
+      }
+    }
+  }
+
+  .logout-btns {
+    display: flex;
+    flex-direction: column;
+    height: 105px;
+    justify-content: center;
+    p {
+      padding: 0 8px;
+      margin: 0;
+      height: 52.5px;
+      width: 1000px;
+      display: flex;
+      align-items: center;
+    }
+
+    p:hover {
+      display: flex;
+      align-items: center;
+      background-color: rgb(211, 249, 236);
+    }
   }
 }
 
