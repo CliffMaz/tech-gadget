@@ -16,6 +16,8 @@ import Orders from "./Components/Store/profile/Orders";
 import Profile from "./Components/Store/profile/Profile";
 import Settings from "./Components/Store/profile/Settings";
 import PageNotFound from "./Components/PageNotFound";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+import PaypalCheckout from "./Components/Store/checkout/PaypalCheckout";
 
 function App() {
   const { products, cartData, cartCountData, search, userData } =
@@ -28,7 +30,7 @@ function App() {
 
   useEffect(() => {
     const token = localStorage.getItem("auth-token");
-
+    localStorage.cartItems = JSON.stringify(cartList);
     Axios.post(
       "http://localhost:4001/api/auth/verify",
       {},
@@ -49,6 +51,7 @@ function App() {
         localStorage.removeItem("auth-token");
       });
     setCartCount(sumCartItems(cartList));
+    console.log(cartList);
   }, [cartList, cartCount]);
 
   function searchItem(value) {
@@ -113,42 +116,49 @@ function App() {
   }
 
   return (
-    <Router>
-      <div className="App">
-        <Header searchItem={searchItem} />
+    <PayPalScriptProvider
+      options={{
+        "client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID,
+      }}
+    >
+      <Router>
+        <div className="App">
+          <Header searchItem={searchItem} />
 
-        <Routes>
-          <Route path="/" element={<Store addToCart={addToCart} />} />
-          <Route path="/shop" element={<Shop addToCart={addToCart} />} />
-          <Route
-            path="/details/:productId"
-            element={<ProductInfo addToCart={addToCart} />}
-          />
-          <Route
-            path="/cart"
-            element={
-              <Cart
-                updateQuantity={updateQuantity}
-                deleteCartItem={deleteCartItem}
-              />
-            }
-          />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/payment" element={<PayOut />} />
-          <Route path="/success" element={<CheckOutSuccess />} />
+          <Routes>
+            <Route path="/" element={<Store addToCart={addToCart} />} />
+            <Route path="/shop" element={<Shop addToCart={addToCart} />} />
+            <Route
+              path="/details/:productId"
+              element={<ProductInfo addToCart={addToCart} />}
+            />
+            <Route
+              path="/cart"
+              element={
+                <Cart
+                  updateQuantity={updateQuantity}
+                  deleteCartItem={deleteCartItem}
+                />
+              }
+            />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/payment" element={<PayOut />} />
+            <Route path="/success" element={<CheckOutSuccess />} />
+            <Route path="paypal" element={<PaypalCheckout />} />
 
-          <Route path="/profile" element={<Profile />}>
-            <Route path="/profile/orders" element={<Orders />}>
-              <Route path="profile/orders/order" />
+            <Route path="/profile" element={<Profile />}>
+              <Route path="/profile/orders" element={<Orders />}>
+                <Route path="profile/orders/order" />
+              </Route>
+              <Route path="/profile/settings" element={<Settings />} />
             </Route>
-            <Route path="/profile/settings" element={<Settings />} />
-          </Route>
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
 
-        <Footer />
-      </div>
-    </Router>
+          <Footer />
+        </div>
+      </Router>
+    </PayPalScriptProvider>
   );
 }
 

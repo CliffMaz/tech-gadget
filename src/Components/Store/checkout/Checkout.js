@@ -2,6 +2,7 @@ import React from "react";
 import "./Checkout.scss";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import { Link } from "react-router-dom";
 
 function Checkout() {
   return (
@@ -41,7 +42,14 @@ function Checkout() {
           <option value="ZW">Zimbabwe</option>
         </select>
 
-        <button>Proceed to Payment</button>
+        <Link
+          style={{
+            textDecoration: "none",
+          }}
+          to="/paypal"
+        >
+          <button type="submit">Proceed to Payment</button>
+        </Link>
       </form>
     </div>
   );

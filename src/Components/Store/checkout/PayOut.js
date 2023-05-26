@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./Checkout.scss";
+import { PayPalButtons } from "@paypal/react-paypal-js";
 
 function PayOut() {
-  const [paypal, setPaypal] = useState(false);
+  const [paypal, setPaypal] = useState("");
   const [credit, setCredit] = useState(false);
-
+  console.log();
   return (
     <section className="payout">
       <form className="pay-form">
@@ -31,7 +32,8 @@ function PayOut() {
             onChange={(e) => {
               e.preventDefault();
               setCredit(true);
-              setPaypal(false);
+              setPaypal(e.target.value);
+              console.log();
             }}
           />
           <label>Credit Card</label>

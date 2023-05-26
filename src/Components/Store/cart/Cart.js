@@ -44,7 +44,14 @@ function Cart({ updateQuantity, deleteCartItem }) {
           <Link to="/shop" style={{ textDecoration: "none" }}>
             <button>Continue Shopping</button>
           </Link>
-          <button className="checkout">Checkout</button>
+          <Link
+            style={{
+              textDecoration: "none",
+            }}
+            to="/checkout"
+          >
+            <button className="checkout">Checkout</button>
+          </Link>
         </div>
       </div>
     </div>

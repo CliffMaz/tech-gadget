@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { LoginContext } from "../../../Context/LoginContext";
 
 function ProductInfo({ addToCart }) {
+  window.scrollTo(0, 0);
   const { productId } = useParams();
   const { products } = useContext(LoginContext);
   const [productList] = products;

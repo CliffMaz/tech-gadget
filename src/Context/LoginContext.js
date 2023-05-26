@@ -4,7 +4,9 @@ import { createContext } from "react";
 export const LoginContext = createContext();
 
 export const LoginProvider = (props) => {
-  const [cartList, setCartList] = useState([]);
+  const cartInfo = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+  const [cartList, setCartList] = useState(cartInfo);
   const [productList, setProductList] = useState([]);
   const [cartCount, setCartCount] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
