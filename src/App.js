@@ -28,8 +28,9 @@ function App() {
   const [, setSearchQuary] = search;
   const [user, setUser] = userData;
 
+  const token = localStorage.getItem("auth-token");
+
   useEffect(() => {
-    const token = localStorage.getItem("auth-token");
     localStorage.cartItems = JSON.stringify(cartList);
     Axios.post(
       "http://localhost:4001/api/auth/verify",
@@ -60,7 +61,7 @@ function App() {
 
   //delete function for deleting items from the cart
   function deleteCartItem(id) {
-    setCartList((items) => items.filter((item) => item.id !== id));
+    setCartList((items) => items.filter((item) => item._id !== id));
   }
 
   //function do update cart item count
@@ -79,7 +80,7 @@ function App() {
     if (value === 0) deleteCartItem(id);
     if (value > 0) {
       cartList.map((item) => {
-        if (item.id === id) {
+        if (item._id === id) {
           item.quantity = value;
         }
         setCartCount(sumCartItems(cartList));
@@ -93,7 +94,7 @@ function App() {
 
     if (cartList.length !== 0) {
       cartList?.map((data) => {
-        if (data.id === id) {
+        if (data._id === id) {
           let newValue = data.quantity + 1;
           data.quantity = newValue;
           setCartList(cartList);
@@ -105,7 +106,7 @@ function App() {
     if (!value) {
       productList.forEach((item) => {
         //if (cartList !== 0)
-        if (item.id === id) {
+        if (item._id === id) {
           setCartList([...cartList, { ...item, quantity: 1 }]);
         }
       });

@@ -1,8 +1,6 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useRef } from "react";
 import "./Category.scss";
-import ipad from "../../../assets/ipad.png";
-import Category from "./Category";
-import air from "../../../assets/macAir.png";
+
 import { LoginContext } from "../../../Context/LoginContext";
 import Product from "../products/Product";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
@@ -30,7 +28,7 @@ function Categories({ addToCart }) {
 
         <div className="cat-list" ref={refer}>
           {productList.map((item) => (
-            <Product key={item.id} addToCart={addToCart} product={item} />
+            <Product key={item._id} addToCart={addToCart} product={item} />
           ))}
         </div>
 

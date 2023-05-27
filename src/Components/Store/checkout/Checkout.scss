@@ -135,3 +135,51 @@
   align-items: center;
   justify-content: center;
 }
+
+//css fot paypal page
+
+.paypal {
+  padding: 100px 200px 0 200px;
+  display: flex;
+  min-height: 70vh;
+}
+.paypal-left {
+  width: 50%;
+}
+
+.paypal-right {
+  width: fit-content;
+  height: fit-content;
+  margin: 0 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid lightgray;
+
+  .order-details {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 350px;
+    margin-bottom: 20px;
+    padding: 20px;
+    div {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    h4 {
+      width: 100%;
+      font-weight: 400;
+      font-size: 22px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .total-price {
+      border-top: 1px solid lightgray;
+    }
+  }
+}

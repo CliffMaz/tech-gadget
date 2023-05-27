@@ -28,9 +28,10 @@ function Cart({ updateQuantity, deleteCartItem }) {
           cartList.map((item) => (
             <Item
               item={item}
-              key={item.id}
+              key={item._id}
               updateQuantity={updateQuantity}
               deleteCartItem={deleteCartItem}
+              disabled={false}
             />
           ))
         ) : (

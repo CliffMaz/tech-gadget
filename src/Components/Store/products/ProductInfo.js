@@ -14,8 +14,9 @@ function ProductInfo({ addToCart }) {
   let product = null;
 
   productList.forEach((item) => {
-    if (item.id === parseInt(productId)) {
+    if (item._id === productId) {
       product = item;
+      console.log(product);
     }
   });
 
@@ -35,7 +36,7 @@ function ProductInfo({ addToCart }) {
             <p>{product?.price}</p>
             <button
               onClick={() => {
-                addToCart(product?.id);
+                addToCart(product?._id);
               }}
             >
               <ShoppingCartOutlinedIcon /> Add To Cart

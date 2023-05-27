@@ -2,43 +2,44 @@ import React, { useState } from "react";
 import "./Cart.scss";
 import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
 
-function Item(props) {
-  let value = props.item.quantity;
+function Item({ item, updateQuantity, disabled, deleteCartItem }) {
+  let value = item.quantity;
   const [quantity, setQuantity] = useState(value);
 
   function updateAddQuantity() {
     value += 1;
     setQuantity(value);
-    props.updateQuantity(props.item.id, value);
+    updateQuantity(item._id, value);
   }
 
   function updateSubQuantity() {
     value -= 1;
     setQuantity(value);
-    props.updateQuantity(props.item.id, value);
+    updateQuantity(item._id, value);
   }
 
   return (
     <section className="cart">
       <div className="cart-left">
-        <img src={props.item.img} alt="" />
+        <img src={item.img} alt="" />
       </div>
       <div className="cart-right">
-        <h1>{props.item.pname}</h1>
-        <p>{props.item.price}</p>
+        <h1>{item.pname}</h1>
+        <p>{item.price}</p>
         <div className="cart-buttons">
           <div className="cart-edit">
             <button
               onClick={() => {
                 updateSubQuantity();
               }}
+              disabled={disabled}
             >
               -
             </button>
             <input
               type="text"
               onInput={(e) => {
-                props.updateQuantity();
+                updateQuantity();
               }}
               value={quantity}
             />
@@ -46,19 +47,25 @@ function Item(props) {
               onClick={() => {
                 updateAddQuantity();
               }}
+              disabled={disabled}
             >
               +
             </button>
           </div>
-          <p>
-            <DeleteForeverOutlinedIcon
-              fontSize="large"
-              color="error"
-              onClick={() => {
-                props.deleteCartItem(props.item.id);
-              }}
-            />
-          </p>
+          {disabled === "disabled" ? (
+            ""
+          ) : (
+            <p>
+              <DeleteForeverOutlinedIcon
+                fontSize="large"
+                color="error"
+                disabled={disabled}
+                onClick={() => {
+                  deleteCartItem(item._id);
+                }}
+              />
+            </p>
+          )}
         </div>
       </div>
     </section>

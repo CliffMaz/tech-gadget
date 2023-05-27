@@ -13,7 +13,11 @@ function Products({ addToCart, searchQuery }) {
         {productList
           .filter((item) => item.pname.toLowerCase().includes(searchQuery))
           .map((product) => (
-            <Product product={product} key={product.id} addToCart={addToCart} />
+            <Product
+              product={product}
+              key={product._id}
+              addToCart={addToCart}
+            />
           ))}
       </div>
     </section>
