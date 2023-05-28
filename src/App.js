@@ -145,7 +145,7 @@ function App() {
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/payment" element={<PayOut />} />
             <Route path="/success" element={<CheckOutSuccess />} />
-            <Route path="paypal" element={<PaypalCheckout />} />
+            <Route path="/paypal/:id" element={<PaypalCheckout />} />
 
             <Route path="/profile" element={<Profile />}>
               <Route path="/profile/orders" element={<Orders />}>

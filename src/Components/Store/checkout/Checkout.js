@@ -1,11 +1,12 @@
 import React, { useState, useContext, useRef } from "react";
 import "./Checkout.scss";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LoginContext } from "../../../Context/LoginContext";
 import axios from "axios";
 
 function Checkout() {
+  const navigate = useNavigate();
   const { cartData, cartCountData, userData } = useContext(LoginContext);
   const [cartList] = cartData;
   const [cartCount] = cartCountData;
@@ -53,6 +54,9 @@ function Checkout() {
         headers: { authtoken: token },
       })
       .then((res) => {
+        setTimeout(() => {
+          navigate(`/paypal/${res.data._id}`);
+        }, 1000);
         console.log(res);
       })
       .catch((err) => {
@@ -113,9 +117,7 @@ function Checkout() {
           <option value="Zimbabwe">Zimbabwe</option>
         </select>
 
-        <button type="submit">
-          <Link to="/paypal">Proceed to Payment</Link>
-        </button>
+        <button type="submit">Proceed to Payment</button>
       </form>
     </div>
   );
