@@ -12,7 +12,7 @@ function Product(props) {
       <div className="product">
         <img src={props.product.img} alt={props.product.pname} />
         <p>{props.product.pname}</p>
-        <p>{props.product.price}</p>
+        <p>${props.product.price}</p>
         <button
           onClick={(e) => {
             //e.stopPropagation();

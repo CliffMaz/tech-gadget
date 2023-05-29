@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import "./Cart.scss";
 import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
 
-function Item({ item, updateQuantity, disabled, deleteCartItem }) {
+function Item({
+  item,
+  updateQuantity,
+  disabled,
+  deleteCartItem,
+  itemQuantity,
+}) {
   let value = item.quantity;
   const [quantity, setQuantity] = useState(value);
 
@@ -25,7 +31,7 @@ function Item({ item, updateQuantity, disabled, deleteCartItem }) {
       </div>
       <div className="cart-right">
         <h1>{item.pname}</h1>
-        <p>{item.price}</p>
+        <p>${item.price}</p>
         <div className="cart-buttons">
           <div className="cart-edit">
             <button
@@ -41,7 +47,7 @@ function Item({ item, updateQuantity, disabled, deleteCartItem }) {
               onInput={(e) => {
                 updateQuantity();
               }}
-              value={quantity}
+              value={itemQuantity}
             />
             <button
               onClick={() => {

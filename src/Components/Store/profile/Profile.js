@@ -5,6 +5,7 @@ import Orders from "./Orders";
 import Settings from "./Settings";
 import ipad from "../../../assets/ipad.png";
 import { LoginContext } from "../../../Context/LoginContext";
+import UserNoteLogged from "../../UserNoteLogged";
 
 function Profile() {
   const [active, setActive] = useState(1);
@@ -65,9 +66,9 @@ function Profile() {
       </div>
     </section>
   ) : (
-    <div className="no-user">
-      <h1>You need to be logged in to access this page</h1>
-    </div>
+    <>
+      <UserNoteLogged />
+    </>
   );
 }
 

@@ -2,11 +2,12 @@ import React, { useContext } from "react";
 import "./Settings.scss";
 import ipad from "../../../assets/ipad.png";
 import { LoginContext } from "../../../Context/LoginContext";
+import UserNoteLogged from "../../UserNoteLogged";
 
 function Settings() {
   const { userData } = useContext(LoginContext);
   const [user] = userData;
-  return (
+  return user?._id ? (
     <section className="settings">
       <h2>Settings</h2>
 
@@ -46,6 +47,10 @@ function Settings() {
         <button>Update</button>
       </form>
     </section>
+  ) : (
+    <>
+      <UserNoteLogged />
+    </>
   );
 }
 

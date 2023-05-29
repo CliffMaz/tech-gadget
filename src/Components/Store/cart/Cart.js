@@ -28,6 +28,7 @@ function Cart({ updateQuantity, deleteCartItem }) {
           cartList.map((item) => (
             <Item
               item={item}
+              itemQuantity={item.quantity}
               key={item._id}
               updateQuantity={updateQuantity}
               deleteCartItem={deleteCartItem}

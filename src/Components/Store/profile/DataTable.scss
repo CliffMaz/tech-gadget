@@ -13,4 +13,29 @@
 .table-data {
   height: 30px;
   background-color: antiquewhite;
+
+  .isNPaid {
+    p {
+      background-color: red;
+      color: white;
+      height: 25px;
+      margin: 5px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 25px;
+    }
+  }
+  .isPaid {
+    p {
+      background-color: green;
+      color: white;
+      height: 25px;
+      margin: 5px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 25px;
+    }
+  }
 }

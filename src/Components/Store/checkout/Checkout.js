@@ -4,6 +4,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Link, useNavigate } from "react-router-dom";
 import { LoginContext } from "../../../Context/LoginContext";
 import axios from "axios";
+import UserNoteLogged from "../../UserNoteLogged";
 
 function Checkout() {
   const navigate = useNavigate();
@@ -64,7 +65,7 @@ function Checkout() {
       });
   };
 
-  return (
+  return user?._id ? (
     <div className="checkout">
       <div className="nav-btn">
         <ArrowBackIcon />
@@ -119,6 +120,10 @@ function Checkout() {
 
         <button type="submit">Proceed to Payment</button>
       </form>
+    </div>
+  ) : (
+    <div>
+      <UserNoteLogged />
     </div>
   );
 }

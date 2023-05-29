@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Orders.scss";
 import DataTable from "./DataTable";
+import UserNoteLogged from "../../UserNoteLogged";
+import { LoginContext } from "../../../Context/LoginContext";
 
 function Orders() {
-  return (
+  const { userData } = useContext(LoginContext);
+  const [user] = userData;
+  return user?._id ? (
     <section className="orders">
       <h2>Orders</h2>
       <DataTable />
     </section>
+  ) : (
+    <>
+      <UserNoteLogged />
+    </>
   );
 }
 

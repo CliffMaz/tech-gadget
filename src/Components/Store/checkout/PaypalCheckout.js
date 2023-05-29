@@ -50,7 +50,11 @@ function PaypalCheckout() {
     <div className="paypal">
       <div className="paypal-left">
         {order?.orderItems?.map((product) => (
-          <Item item={product.product} disabled="disabled" />
+          <Item
+            item={product.product}
+            itemQuantity={product.quantity}
+            disabled="disabled"
+          />
         ))}
       </div>
       <div className="paypal-right">
