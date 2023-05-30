@@ -21,9 +21,10 @@ function Shop({ addToCart }) {
     )
       .then((res) => {
         setProductList(res.data);
-        console.log(res.data);
       })
-      .catch((err) => {});
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
   return (
     <main className="shop">

@@ -19,7 +19,10 @@ function OrderRow({ order }) {
           <p>Not Paid</p>
         </td>
       )}
-      <td>R21000</td>
+      <td className="orderStatus">
+        <p>{order.orderStatus}</p>
+      </td>
+      <td>${order.totalPrice}</td>
     </tr>
   );
 }

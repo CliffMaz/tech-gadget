@@ -183,3 +183,15 @@
     }
   }
 }
+
+.orderPaid {
+  background-color: green;
+  color: white;
+  padding: 2px 4px;
+  height: 25px;
+  margin: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+}

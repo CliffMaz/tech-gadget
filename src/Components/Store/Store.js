@@ -19,9 +19,10 @@ function Store({ addToCart }) {
     )
       .then((res) => {
         setProductList(res.data);
-        console.log(res.data);
       })
-      .catch((err) => {});
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
   const { products, search } = useContext(LoginContext);
 

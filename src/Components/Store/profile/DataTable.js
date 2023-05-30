@@ -34,6 +34,7 @@ export default function DataTable() {
           <tr>
             <td>Order Id</td>
             <td>Order Date</td>
+            <td>Payment</td>
             <td>Status</td>
             <td>Price</td>
             <td></td>

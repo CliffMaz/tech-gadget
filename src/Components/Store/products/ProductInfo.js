@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./Products.scss";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { useParams } from "react-router-dom";
-
+import axios from "axios";
 import { LoginContext } from "../../../Context/LoginContext";
 
 function ProductInfo({ addToCart }) {
@@ -11,14 +11,31 @@ function ProductInfo({ addToCart }) {
   const { products } = useContext(LoginContext);
   const [productList] = products;
 
-  let product = null;
+  let [product, setProduct] = useState(null);
 
-  productList.forEach((item) => {
+  const token = localStorage.getItem("auth-token");
+  useEffect(() => {
+    axios
+      .get(
+        `http://localhost:4001/api/product/${productId}`,
+
+        {
+          headers: { authtoken: token },
+        }
+      )
+      .then((res) => {
+        setProduct(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  /*productList.forEach((item) => {
     if (item._id === productId) {
-      product = item;
-      console.log(product);
+      setProduct(item);
     }
-  });
+  });*/
 
   return (
     <section className="p-info">
@@ -33,7 +50,7 @@ function ProductInfo({ addToCart }) {
           <h1>{product?.pname}</h1>
           <p>{product?.desc}</p>
           <div>
-            <p>{product?.price}</p>
+            <p>${product?.price}</p>
             <button
               onClick={() => {
                 addToCart(product?._id);

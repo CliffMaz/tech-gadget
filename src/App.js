@@ -52,7 +52,6 @@ function App() {
         localStorage.removeItem("auth-token");
       });
     setCartCount(sumCartItems(cartList));
-    console.log(cartList);
   }, [cartList, cartCount]);
 
   function searchItem(value) {

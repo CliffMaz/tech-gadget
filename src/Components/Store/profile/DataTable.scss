@@ -5,6 +5,7 @@
 
   .thead tr {
     border-bottom: 1px solid black;
+    height: 50px;
     background-color: black;
     color: white;
   }
@@ -29,6 +30,19 @@
   .isPaid {
     p {
       background-color: green;
+      color: white;
+      height: 25px;
+      margin: 5px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 25px;
+    }
+  }
+
+  .orderStatus {
+    p {
+      background-color: rgb(81, 125, 81);
       color: white;
       height: 25px;
       margin: 5px 10px;

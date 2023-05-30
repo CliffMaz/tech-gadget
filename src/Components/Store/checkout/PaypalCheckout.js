@@ -6,6 +6,7 @@ import { productItems } from "../../../data/data";
 import { LoginContext } from "../../../Context/LoginContext";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
 function PaypalCheckout() {
   window.scrollTo(0, 0);
@@ -17,7 +18,58 @@ function PaypalCheckout() {
   const { orderData } = useContext(LoginContext);
   const [order, setOrder] = orderData;
   const { id } = useParams();
-  console.log(token);
+
+  const notifySuccess = (succ) => {
+    toast.success(`🦄 ${succ}`, {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+  const notifyErr = (err) => {
+    toast.error(`🦄 ${err}`, {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+  const handleApprove = (id) => {
+    console.log("handleApprove");
+    axios
+      .put(
+        `http://localhost:4001/api/order/update`,
+        {
+          ...order,
+          isPaid: true,
+          paypalId: id,
+        },
+
+        {
+          headers: { authtoken: token },
+        }
+      )
+      .then((res) => {
+        console.log(res.data);
+        notifySuccess("Order paid successfully");
+        setTimeout(() => {
+          window.location.reload();
+        }, 4000);
+      })
+      .catch((err) => {
+        notifyErr("failed to make payment");
+        console.log("error Cliff: ", err.response);
+      });
+  };
 
   useEffect(() => {
     const _id = String(id);
@@ -51,6 +103,7 @@ function PaypalCheckout() {
       <div className="paypal-left">
         {order?.orderItems?.map((product) => (
           <Item
+            key={product._id}
             item={product.product}
             itemQuantity={product.quantity}
             disabled="disabled"
@@ -80,21 +133,45 @@ function PaypalCheckout() {
           </div>
         </div>
         <div>
-          <PayPalButtons
-            style={{ layout: "vertical" }}
-            createOrder={(data, action) => {
-              return action.order.create({
-                purchase_units: [
-                  {
-                    description: order?._id,
-                    amount: { value: toPay },
-                  },
-                ],
-              });
-            }}
-          />
+          {order?.isPaid ? (
+            <p className="orderPaid">Order has been paid</p>
+          ) : (
+            <PayPalButtons
+              style={{ layout: "vertical" }}
+              createOrder={(data, action) => {
+                return action.order.create({
+                  purchase_units: [
+                    {
+                      description: order?._id,
+                      amount: { value: toPay },
+                    },
+                  ],
+                });
+              }}
+              onApprove={async (data, actions) => {
+                const order = await actions.order.capture();
+                console.log(order);
+                handleApprove(data.orderID);
+              }}
+              onError={(err) => {
+                console.log("paypal onError: ", err);
+              }}
+            />
+          )}
         </div>
       </div>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }
