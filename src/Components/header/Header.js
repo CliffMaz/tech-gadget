@@ -74,11 +74,11 @@ function Header(props) {
           ) : (
             <>
               <div className="loggedInUser">
-                <img src={ipad} alt="" />
+                <img src={user?.profileDisplay} alt="" />
                 Hi, {user.username}
                 <div className="profil">
                   <div className="dp">
-                    <img src={ipad} alt="" />
+                    <img src={user.profileDisplay} alt="" />
                     <div>
                       <p>{user.fullname}</p>
                       <p className="fname">{user.role}</p>

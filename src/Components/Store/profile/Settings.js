@@ -12,31 +12,33 @@ function Settings() {
   const usernameRef = useRef("");
   const emailRef = useRef("");
   const passwordRef = useRef("");
+  const [file, setFile] = useState(null);
   let toUpdateUser = { ...user, password: "" };
 
   const token = localStorage.getItem("auth-token");
   const handleSubmit = (e) => {
-    console.log(toUpdateUser);
     e.preventDefault();
     if (fullnameRef.current.value !== "") {
       toUpdateUser = {
         ...toUpdateUser,
         fullname: fullnameRef.current.value,
       };
-      console.log("full", toUpdateUser);
     }
     if (usernameRef.current.value !== "") {
       toUpdateUser = { ...toUpdateUser, username: usernameRef.current.value };
-      console.log("usern", toUpdateUser);
     }
     if (emailRef.current.value !== "") {
       toUpdateUser = {
         ...toUpdateUser,
         email: emailRef.current.value,
       };
-      console.log("email", toUpdateUser);
     }
-    console.log(toUpdateUser);
+    if (file !== null) {
+      toUpdateUser = {
+        ...toUpdateUser,
+        profileDisplay: file,
+      };
+    }
 
     axios
       .put(
@@ -44,12 +46,16 @@ function Settings() {
         toUpdateUser,
 
         {
-          headers: { authtoken: token },
+          headers: {
+            authtoken: token,
+            "Content-Type": "multipart/form-data",
+            Accept: "application/json",
+            type: "formData",
+          },
         }
       )
       .then((res) => {
         setUser(res.data.ne);
-        console.log(res.data.ne);
       })
       .catch((err) => {
         console.log(err);
@@ -60,7 +66,11 @@ function Settings() {
     <section className="settings">
       <h2>Settings</h2>
 
-      <form className="update-form" onSubmit={handleSubmit}>
+      <form
+        className="update-form"
+        encType="multipart/form-data"
+        onSubmit={handleSubmit}
+      >
         <div className="form-content">
           <div className="update-left">
             <div>
@@ -86,11 +96,17 @@ function Settings() {
             </div>
             <div>
               <label>Display Picture</label>
-              <input type="file" />
+              <input
+                onChange={(e) => {
+                  setFile(e.target.files[0]);
+                }}
+                type="file"
+                name="profileDisplay"
+              />
             </div>
           </div>
           <div className="update-right">
-            <img src={ipad} />
+            <img src={user?.profileDisplay} />
           </div>
         </div>
         <button type="submit">Update</button>

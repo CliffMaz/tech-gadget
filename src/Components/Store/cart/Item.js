@@ -10,7 +10,7 @@ function Item({
   itemQuantity,
 }) {
   let value = item.quantity;
-  const [quantity, setQuantity] = useState(value);
+  const [, setQuantity] = useState(value);
 
   function updateAddQuantity() {
     value += 1;
@@ -58,22 +58,23 @@ function Item({
               +
             </button>
           </div>
-          {disabled === "disabled" ? (
-            ""
-          ) : (
-            <p>
-              <DeleteForeverOutlinedIcon
-                fontSize="large"
-                color="error"
-                disabled={disabled}
-                onClick={() => {
-                  deleteCartItem(item._id);
-                }}
-              />
-            </p>
-          )}
         </div>
       </div>
+      {disabled === "disabled" ? (
+        ""
+      ) : (
+        <p className="cart-delete">
+          <DeleteForeverOutlinedIcon
+            style={{ cursor: "pointer" }}
+            fontSize="large"
+            color="error"
+            disabled={disabled}
+            onClick={() => {
+              deleteCartItem(item._id);
+            }}
+          />
+        </p>
+      )}
     </section>
   );
 }

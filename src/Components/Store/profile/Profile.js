@@ -10,7 +10,7 @@ import UserNoteLogged from "../../UserNoteLogged";
 function Profile() {
   const [active, setActive] = useState(1);
   const { userData } = useContext(LoginContext);
-  const [user] = userData;
+  const [user, setUser] = userData;
 
   const handleClick = (id) => {
     setActive(id);
@@ -20,7 +20,7 @@ function Profile() {
       <div className="profile-left">
         <div className="profile-nav">
           <div className="pro-pic">
-            <img src={ipad} alt="" />
+            <img src={user.profileDisplay} alt="" />
           </div>
           <div children className="pro-info">
             <p className="heading">{user?.fullname}</p>
@@ -56,9 +56,26 @@ function Profile() {
               Settings
             </h3>
           </Link>
-          <div>
-            <h3>Log Out</h3>
-          </div>
+          <Link
+            style={{
+              textDecoration: "none",
+              color: "#39a537",
+              display: "flex",
+              alignContent: "center",
+              alignItems: "center",
+            }}
+            to="/"
+          >
+            <div
+              onClick={(e) => {
+                e.preventDefault();
+                setUser((prev) => (prev = undefined));
+                localStorage.clear();
+              }}
+            >
+              <h3>Log Out</h3>
+            </div>
+          </Link>
         </div>
       </div>
       <div className="profile-right">

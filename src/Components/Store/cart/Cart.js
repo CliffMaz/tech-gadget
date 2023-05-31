@@ -41,7 +41,7 @@ function Cart({ updateQuantity, deleteCartItem }) {
       </div>
 
       <div className="items-right">
-        <h1>Sub Total: R{priceTotal}</h1>
+        <h1>Sub Total: ${priceTotal}</h1>
         <div className="check-out">
           <Link to="/shop" style={{ textDecoration: "none" }}>
             <button>Continue Shopping</button>
