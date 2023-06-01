@@ -1,0 +1,78 @@
+.profile {
+  display: flex;
+  flex-direction: row;
+  padding-top: 100px;
+}
+
+.profile-left {
+  box-shadow: 1px 0px 11px 3px rgba(130, 119, 119, 0.75);
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 100px;
+}
+.profile-left .profile-nav {
+  display: flex;
+  padding: 0 5px;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid lightgrey;
+}
+.profile-left .profile-nav .pro-pic {
+  align-self: center;
+}
+.profile-left .profile-nav .pro-pic img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.profile-left .profile-nav .pro-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px;
+  align-self: center;
+}
+.profile-left .profile-nav .pro-info .heading {
+  font-size: 22px;
+  font-weight: 300;
+  color: rgb(41, 40, 40);
+  margin-bottom: -15px;
+}
+.profile-left .profile-nav .pro-info p {
+  color: rgb(158, 155, 155);
+}
+.profile-left .profile-btn h3 {
+  color: #292f29;
+  font-size: 14;
+  font-weight: 300;
+  padding-left: 12px;
+  margin: 0;
+  padding: 5px;
+  align-self: center;
+}
+.profile-left .profile-btn div {
+  border-top: 1px solid lightgray;
+}
+
+.profile-right {
+  padding: 20px;
+  box-shadow: 1px 0px 11px 3px rgba(130, 119, 119, 0.75);
+  min-height: 60vh;
+  margin: 100px;
+}
+
+.not-active {
+  background-color: rgb(255, 255, 255);
+}
+
+.active-link {
+  background-color: rgb(211, 249, 236);
+  padding: 5px;
+}
+
+.no-user {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}/*# sourceMappingURL=Profile.css.map */

@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from "react";
 import "./Checkout.scss";
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import Item from "../cart/Item";
-import { productItems } from "../../../data/data";
 import { LoginContext } from "../../../Context/LoginContext";
 import { useParams } from "react-router-dom";
 import axios from "axios";

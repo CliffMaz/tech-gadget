@@ -11,9 +11,14 @@
   }
 }
 
+.tab {
+  overflow-x: auto;
+  width: 100%;
+  background-color: aqua;
+}
+
 .table-data {
   height: 30px;
-  background-color: antiquewhite;
 
   .isNPaid {
     p {

@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import SignIn from "../signIn/SignIn";
 import Register from "../signIn/Register";
 import { LoginContext } from "../../Context/LoginContext";
-import ipad from "../../assets/ipad.png";
 import ManageAccountsOutlinedIcon from "@mui/icons-material/ManageAccountsOutlined";
 import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 

@@ -1,16 +1,16 @@
 import React, { useState, useContext, useRef } from "react";
 import "./Checkout.scss";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { LoginContext } from "../../../Context/LoginContext";
 import axios from "axios";
 import UserNoteLogged from "../../UserNoteLogged";
+import { ToastContainer, toast } from "react-toastify";
 
 function Checkout() {
   const navigate = useNavigate();
-  const { cartData, cartCountData, userData } = useContext(LoginContext);
+  const { cartData, userData } = useContext(LoginContext);
   const [cartList] = cartData;
-  const [cartCount] = cartCountData;
   const addressRef = useRef("");
   const cityRef = useRef("");
   const postalCodeRef = useRef("");
@@ -20,6 +20,32 @@ function Checkout() {
   let totalPrice = 0;
 
   const token = localStorage.getItem("auth-token");
+
+  const notifySuccess = (succ) => {
+    toast.success(`🦄 ${succ}`, {
+      position: "bottom-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+
+  const notifyErr = (err) => {
+    toast.success(`🦄 ${err}`, {
+      position: "bottom-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
   const handleCreateOrder = () => {
     cartList.map((item) => {
       products.push({
@@ -55,12 +81,14 @@ function Checkout() {
         headers: { authtoken: token },
       })
       .then((res) => {
+        notifySuccess("Order created, proceeding to payment");
         setTimeout(() => {
           navigate(`/paypal/${res.data._id}`);
         }, 1000);
         console.log(res);
       })
       .catch((err) => {
+        notifyErr("failed to create Order", err);
         console.log("error Cliff: ", err);
       });
   };
@@ -120,6 +148,18 @@ function Checkout() {
 
         <button type="submit">Proceed to Payment</button>
       </form>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   ) : (
     <div>

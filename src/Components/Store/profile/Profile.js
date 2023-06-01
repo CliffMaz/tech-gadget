@@ -1,9 +1,6 @@
 import React, { useState, useContext } from "react";
 import "./Profile.scss";
-import { Link, Outlet, Route, Routes } from "react-router-dom";
-import Orders from "./Orders";
-import Settings from "./Settings";
-import ipad from "../../../assets/ipad.png";
+import { Link, Outlet } from "react-router-dom";
 import { LoginContext } from "../../../Context/LoginContext";
 import UserNoteLogged from "../../UserNoteLogged";
 
@@ -56,26 +53,27 @@ function Profile() {
               Settings
             </h3>
           </Link>
-          <Link
-            style={{
-              textDecoration: "none",
-              color: "#39a537",
-              display: "flex",
-              alignContent: "center",
-              alignItems: "center",
+
+          <div
+            onClick={(e) => {
+              e.preventDefault();
+              setUser((prev) => (prev = undefined));
+              localStorage.clear();
             }}
-            to="/"
           >
-            <div
-              onClick={(e) => {
-                e.preventDefault();
-                setUser((prev) => (prev = undefined));
-                localStorage.clear();
+            <Link
+              style={{
+                textDecoration: "none",
+                color: "#39a537",
+                display: "flex",
+                alignContent: "center",
+                alignItems: "center",
               }}
+              to="/"
             >
               <h3>Log Out</h3>
-            </div>
-          </Link>
+            </Link>
+          </div>
         </div>
       </div>
       <div className="profile-right">

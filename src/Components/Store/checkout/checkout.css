@@ -7,12 +7,173 @@
   align-items: center;
 }
 .checkout .nav-btn {
-  background-color: antiquewhite;
+  width: 70%;
+  padding-left: 150px;
 }
 .checkout .checkout-info {
   display: flex;
   flex-direction: column;
-  background-color: antiquewhite;
+  width: 450px;
+  height: 500px;
+  padding: 20px;
+  justify-content: space-between;
+  box-shadow: 1px 0px 11px 3px rgba(130, 119, 119, 0.75);
+}
+.checkout .checkout-info h4 {
+  width: 100%;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  font-weight: 400;
+  font-size: 22px;
+}
+.checkout .checkout-info input {
+  width: 95%;
+  align-self: center;
+  height: 30px;
+  font-size: 17px;
+}
+.checkout .checkout-info label {
+  width: 95%;
+  align-self: center;
+  height: 30px;
+  font-size: 17px;
+}
+.checkout .checkout-info select {
+  width: 95%;
+  align-self: center;
+  height: 30px;
+  font-size: 17px;
+}
+.checkout .checkout-info option {
+  width: 95%;
+  align-self: center;
+  height: 30px;
+  font-size: 17px;
+}
+.checkout .checkout-info button {
+  width: 95%;
+  background-color: black;
+  align-self: center;
+  color: white;
+  height: 30px;
+  font-size: 17px;
+  border: none;
+}
+.checkout .checkout-info button:hover {
+  background-color: rgb(75, 69, 69);
+}
+.checkout .checkout-info button:active {
+  transform: scale(1.2);
+  background-color: black;
+}
+.checkout .checkout-info button:active buton:active {
+  transform: scale(1.2);
+  color: green;
+}
+
+.payout {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.payout .pay-form {
+  padding: 10px;
+  border-radius: 1px;
+  width: 20vw;
+  box-shadow: 1px 0px 11px 3px rgba(130, 119, 119, 0.75);
+}
+.payout .pay-form h4 {
+  width: 100%;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  font-weight: 400;
+  font-size: 22px;
+}
+.payout .pay-form div {
+  padding: 10px;
+}
+.payout .pay-form .pay-btn {
+  width: 95%;
+  background-color: black;
+  align-self: center;
+  color: white;
+  height: 30px;
+  font-size: 17px;
+  border: none;
+}
+.payout .pay-form .pay-btn:hover {
+  background-color: rgb(75, 69, 69);
+}
+.payout .pay-form .pay-btn:active {
+  transform: scale(1.1);
+  background-color: black;
+}
+
+.success {
+  height: 70vh;
+  padding-top: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paypal {
+  padding: 100px 200px 0 200px;
+  display: flex;
+  min-height: 70vh;
+}
+
+.paypal-left {
+  width: 50%;
+}
+
+.paypal-right {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 0 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid lightgray;
+}
+.paypal-right .order-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   width: 350px;
-  height: 600px;
-}/*# sourceMappingURL=checkout.css.map */
+  margin-bottom: 20px;
+  padding: 20px;
+}
+.paypal-right .order-details div {
+  display: flex;
+  justify-content: space-between;
+}
+.paypal-right .order-details h4 {
+  width: 100%;
+  font-weight: 400;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+}
+.paypal-right .order-details .total-price {
+  border-top: 1px solid lightgray;
+}
+
+.orderPaid {
+  background-color: green;
+  color: white;
+  padding: 2px 4px;
+  height: 25px;
+  margin: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+}/*# sourceMappingURL=Checkout.css.map */

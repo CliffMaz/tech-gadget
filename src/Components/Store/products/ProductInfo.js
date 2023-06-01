@@ -1,15 +1,12 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./Products.scss";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { LoginContext } from "../../../Context/LoginContext";
 
 function ProductInfo({ addToCart }) {
   window.scrollTo(0, 0);
   const { productId } = useParams();
-  const { products } = useContext(LoginContext);
-  const [productList] = products;
 
   let [product, setProduct] = useState(null);
 

@@ -13,6 +13,7 @@ export const LoginProvider = (props) => {
   const [user, setUser] = useState({});
   const [order, setOrder] = useState(null);
   const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   return (
     <LoginContext.Provider
@@ -24,6 +25,7 @@ export const LoginProvider = (props) => {
         search: [searchQuery, setSearchQuery],
         orderData: [order, setOrder],
         ordersData: [orders, setOrders],
+        loadingIcon: [loading, setLoading],
       }}
     >
       {props.children}

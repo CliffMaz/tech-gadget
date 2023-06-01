@@ -1,0 +1,62 @@
+.settings {
+  width: 50vw;
+}
+
+.update-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.update-form .form-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-self: center;
+}
+.update-form .form-content .update-left {
+  width: 70%;
+}
+.update-form .form-content .update-left div {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 80%;
+  padding: 8px;
+}
+.update-form .form-content .update-left div label {
+  font-size: 18px;
+  color: gray;
+}
+.update-form .form-content .update-left div input {
+  height: 45px;
+  font-size: 22px;
+  font-weight: 100;
+  border-radius: 0;
+  border: 2px solid black;
+}
+.update-form .form-content .update-right {
+  align-items: flex-end;
+}
+.update-form .form-content .update-right img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+.update-form button {
+  width: 100%;
+  background-color: black;
+  align-self: center;
+  color: white;
+  height: 45px;
+  font-size: 17px;
+  border: none;
+  align-self: center;
+}
+.update-form button:hover {
+  background-color: rgb(75, 69, 69);
+}
+.update-form button:active {
+  transform: scale(1.01);
+  background-color: black;
+}/*# sourceMappingURL=Settings.css.map */

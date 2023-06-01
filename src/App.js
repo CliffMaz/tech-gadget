@@ -10,7 +10,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { LoginContext } from "./Context/LoginContext";
 import Axios from "axios";
 import Checkout from "./Components/Store/checkout/Checkout";
-import PayOut from "./Components/Store/checkout/PayOut";
 import CheckOutSuccess from "./Components/Store/checkout/CheckOutSuccess";
 import Orders from "./Components/Store/profile/Orders";
 import Profile from "./Components/Store/profile/Profile";
@@ -78,7 +77,7 @@ function App() {
   function updateQuantity(id, value) {
     if (value === 0) deleteCartItem(id);
     if (value > 0) {
-      cartList.map((item) => {
+      cartList.forEach((item) => {
         if (item._id === id) {
           item.quantity = value;
         }
@@ -142,7 +141,6 @@ function App() {
               }
             />
             <Route path="/checkout" element={<Checkout />} />
-            <Route path="/payment" element={<PayOut />} />
             <Route path="/success" element={<CheckOutSuccess />} />
             <Route path="/paypal/:id" element={<PaypalCheckout />} />
 

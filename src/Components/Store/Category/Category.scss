@@ -7,18 +7,17 @@
 
   h2 {
     font-size: 60px;
-    margin-left: 100px;
+    text-align: center;
   }
 }
 
-.container{
+.container {
   max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  
 
-  .arrow{
+  .arrow {
     box-shadow: 1px 0px 11px 3px rgba(212, 207, 207, 0.75);
     border-radius: 50%;
     width: 25px;
@@ -33,13 +32,12 @@
   display: flex;
   max-width: 90%;
   //justify-content: center;
-  flex-wrap:nowrap;
+  flex-wrap: nowrap;
   padding: 10px;
   overflow-x: scroll;
   scroll-behavior: smooth;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-  
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .cat-list::-webkit-scrollbar {

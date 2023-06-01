@@ -1,9 +1,9 @@
 import React, { useContext, useRef, useState } from "react";
 import "./Settings.scss";
-import ipad from "../../../assets/ipad.png";
 import { LoginContext } from "../../../Context/LoginContext";
 import UserNoteLogged from "../../UserNoteLogged";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
 function Settings() {
   const { userData } = useContext(LoginContext);
@@ -16,6 +16,32 @@ function Settings() {
   let toUpdateUser = { ...user, password: "" };
 
   const token = localStorage.getItem("auth-token");
+
+  const notifySuccess = (succ) => {
+    toast.success(`🦄 ${succ}`, {
+      position: "bottom-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+
+  const notifyErr = (err) => {
+    toast.success(`🦄 ${err}`, {
+      position: "bottom-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     if (fullnameRef.current.value !== "") {
@@ -56,9 +82,11 @@ function Settings() {
       )
       .then((res) => {
         setUser(res.data.ne);
+        notifySuccess("Profile updated successfully");
       })
       .catch((err) => {
         console.log(err);
+        notifyErr(err);
       });
   };
 
@@ -106,11 +134,23 @@ function Settings() {
             </div>
           </div>
           <div className="update-right">
-            <img src={user?.profileDisplay} />
+            <img src={user?.profileDisplay} alt={user?.username} />
           </div>
         </div>
         <button type="submit">Update</button>
       </form>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </section>
   ) : (
     <>

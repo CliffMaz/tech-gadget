@@ -5,7 +5,6 @@ import "./Sign.scss";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Password } from "@mui/icons-material";
 
 function Register({ registerClose, signIn }) {
   const fullnameRef = useRef("");
@@ -13,12 +12,11 @@ function Register({ registerClose, signIn }) {
   const emailRef = useRef("");
   const passwordRef = useRef("");
 
-  const [inputError, setInputError] = useState(false);
   const [inputHandling, setInputHandling] = useState([]);
 
   const notifySuccess = (succ) => {
     toast.success(`🦄 ${succ}`, {
-      position: "top-center",
+      position: "bottom-center",
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
